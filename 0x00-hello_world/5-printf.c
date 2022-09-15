@@ -14,6 +14,6 @@ int main(void)
 	char strArr[101];
 
 	strcpy(strArr, "with proper grammar, but the outcome is a piece of art,");
-	printf("%s", strArr);
+	printf("%s\n", strArr);
 	return (0);
 }
