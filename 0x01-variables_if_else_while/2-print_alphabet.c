@@ -10,10 +10,10 @@
 
 int main(void)
 {
-	char charArr[27] = "abcdefghijklmnopqrstuvwxyz";
+	char charArr[26] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	for (i = 0; i < 27; i++)
+	for (i = 0; i < 26; i++)
 	{
 		putchar(charArr[i]);
 	}
