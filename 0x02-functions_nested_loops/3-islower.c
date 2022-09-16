@@ -2,10 +2,10 @@
 
 /**
  * _islower - a function that determines if character is lower case
- *
+ * @c: input char
  * Return: 1 if lowercase; 0 otherwise
  */
-int _islower(int c) /* c is char passed in */
+int _islower(int c)
 {
 	char cc;
 
