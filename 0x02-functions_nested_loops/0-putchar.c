@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <string.h>
+#include "main.h"
 
 /**
  * main - Entry point
@@ -12,7 +11,12 @@
 int main(void)
 {
 	char charArr[] = "_putchar";
+	int i;
 
-	printf("%s\n", charArr);
+	for (i = 0; i < 8; i++)
+	{
+		_putchar(charArr[i]);
+	}
+	_putchar('\n');
 	return (0);
 }
