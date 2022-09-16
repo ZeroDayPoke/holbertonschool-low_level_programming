@@ -19,6 +19,6 @@ int print_last_digit(int nIn)
 		nAbs = nIn;
 	}
 	nLast = (nAbs % 10);
-	_putchar(nLast);
+	_putchar(nLast + '0');
 	return (nLast);
 }
