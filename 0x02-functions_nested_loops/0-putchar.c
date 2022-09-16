@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * putchar function
  *
  * Description: 'betty compliant example'
  *
