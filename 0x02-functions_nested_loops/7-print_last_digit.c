@@ -7,7 +7,18 @@
  */
 int print_last_digit(int nIn)
 {
-	int nLast = (nIn % 10);
+	int nLast;
+	int nAbs;
 
+	if (nIn < 0)
+	{
+		nAbs = -nIn;
+	}
+	else
+	{
+		nAbs = nIn;
+	}
+	nLast = (nAbs % 10);
+	_putchar(nLast);
 	return (nLast);
 }
