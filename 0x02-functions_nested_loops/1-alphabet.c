@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * prints alphabet
  *
  * Description: 'betty compliant example'
  *
  * Return: Always 0 (Success)
  */
-
 void print_alphabet(void)
 {
 	char charArr[26] = "abcdefghijklmnopqrstuvwxyz";
