@@ -14,7 +14,6 @@ int _islower(int c)
 		if (cc == c)
 		{
 			return (1);
-			break;
 		}
 	}
 	return (0);
