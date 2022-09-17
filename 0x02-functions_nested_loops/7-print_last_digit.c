@@ -10,15 +10,23 @@ int print_last_digit(int nIn)
 	int nLast;
 	int nAbs;
 
-	if (nIn < 0)
+	if (nIn == -2147483648)
 	{
-		nAbs = -nIn;
+		_putchar('8');
+		return (8);
 	}
 	else
 	{
-		nAbs = nIn;
+		if (nIn < 0)
+		{
+			nAbs = -nIn;
+		}
+		else
+		{
+			nAbs = nIn;
+		}
+		nLast = (nAbs % 10);
+		_putchar(nLast + '0');
+		return (nLast);
 	}
-	nLast = (nAbs % 10);
-	_putchar(nLast + '0');
-	return (nLast);
 }
