@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * putchar function
+ * main - entry point for putchar problem
  *
  * Description: 'betty compliant example'
  *
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	char charArr[] = "_putchar";
