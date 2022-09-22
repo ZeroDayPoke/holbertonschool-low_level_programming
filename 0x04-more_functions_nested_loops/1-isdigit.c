@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isdigit - a function that determines if charset representative number is uppercase
+ * _isdigit - a function that checks if input is digit
  * @c: int in
  * Return: 1 if corresponding charset is decimal digit and 0 otherwise
  */
