@@ -9,7 +9,7 @@ void print_times_table(int n)
 {
 	int i, j, p, pp;
 
-	if (n <= 16 && n >= 0)
+	if (n <= 16 && n > 0)
 	{
 		for (i = 0; i <= n; i++)
 		{
@@ -33,7 +33,7 @@ void print_times_table(int n)
 				else
 				{
 					_putchar((p / 100) + '0');
-					_putchar((pp % 10 ) + '0');
+					_putchar((pp % 10) + '0');
 				}
 				_putchar(p % 10 + '0');
 				if (j < n)
@@ -44,5 +44,12 @@ void print_times_table(int n)
 			}
 			_putchar('\n');
 		}
+	}
+	else if (n == 0)
+	{
+		_putchar('0');
+	}
+	else
+	{
 	}
 }
