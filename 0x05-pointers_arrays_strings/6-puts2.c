@@ -14,7 +14,7 @@ void puts2(char *str)
 		_putchar(*(str + a));
 		a += 2;
 	}
-	if (*(str + (a+1)) == '\0')
+	if (*(str + (a + 1)) == '\0')
 	{
 		_putchar(*(str + a));
 	}
