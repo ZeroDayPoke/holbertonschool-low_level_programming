@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isupper - a function that determines if charset representative number is uppercase
+ * _isupper - a function that determines if charset rep num is uppercase
  * @c: int in
  * Return: 1 if corresponding charset is uppercase and 0 otherwise
  */
