@@ -13,7 +13,7 @@ int main(void)
 	printf("2, ");
 	num1 = 1;
 	num2 = 2;
-	while (numCount <= 48)
+	while (numCount < 48)
 	{
 		num3 = num1 + num2;
 		printf("%ld, ", num3);
