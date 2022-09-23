@@ -30,12 +30,9 @@ void print_number(int n)
 	}
 	if (drakkaris == 1)
 	{
-		intArr[nCount] = 8;
+		intArr[0] = 8;
 	}
-	else
-	{
-		intArr[nCount] = (n % 10);
-	}
+	intArr[nCount] = (n % 10);
 	while (nCount >= 0)
 	{
 		if (sign == 1 || drakkaris == 1)
