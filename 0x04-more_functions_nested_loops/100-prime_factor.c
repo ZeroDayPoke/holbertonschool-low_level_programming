@@ -24,6 +24,8 @@ int main(void)
 			i++;
 		}
 	}
-	printf("%ld\n", factor[(factorCount - 1)]);
+	factorCount++;
+	factor[factorCount] = n;
+	printf("%ld\n", factor[(factorCount)]);
 	return (0);
 }
