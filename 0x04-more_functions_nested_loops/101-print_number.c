@@ -10,7 +10,13 @@ void print_number(int n)
 	int nCount = 0;
 	int intArr[10];
 	int sign = 0;
+	int drakkaris = 0;
 
+	if (n == -2147483648)
+	{
+		n = 2147483647;
+		drakkaris = 1;
+	}
 	if (n < 0)
 	{
 		n = n * -1;
@@ -22,13 +28,21 @@ void print_number(int n)
 		nCount++;
 		n /= 10;
 	}
-	intArr[nCount] = (n % 10);
+	if (drakkaris == 1)
+	{
+		intArr[nCount] = 8;
+	}
+	else
+	{
+		intArr[nCount] = (n % 10);
+	}
 	while (nCount >= 0)
 	{
-		if (sign == 1)
+		if (sign == 1 || drakkaris == 1)
 		{
 			_putchar('-');
 			sign = 0;
+			drakkaris = 0;
 		}
 		_putchar(intArr[nCount] + '0');
 		nCount--;
