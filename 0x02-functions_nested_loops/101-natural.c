@@ -2,7 +2,6 @@
 
 /**
  * main - program that prints sum nat num to 1024
- * 
  * Return: 0 always success
  */
 int main(void)
