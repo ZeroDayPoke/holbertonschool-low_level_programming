@@ -8,7 +8,7 @@
 int _atoi(char *s)
 {
 	int a = 0;
-	int sign = 1;
+	int sign = -1;
 	int numFlag = 0;
 	int retThis = 0;
 
@@ -21,7 +21,7 @@ int _atoi(char *s)
 		else if (*(s + a) >= '0' && *(s + a) <= '9')
 		{
 			retThis *= 10;
-			retThis += (*(s + a) - 48);
+			retThis -= (*(s + a) - 48);
 			numFlag = 1;
 		}
 		else if (numFlag == 1)
@@ -30,6 +30,6 @@ int _atoi(char *s)
 		}
 		a++;
 	}
-	retThis = retThis * sign;
+	retThis = (retThis * sign);
 	return (retThis);
 }
