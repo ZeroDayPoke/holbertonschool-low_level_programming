@@ -10,7 +10,7 @@ int _atoi(char *s)
 	int a = 0;
 	int sign = 1;
 	int numFlag = 0;
-	int returnThis = 0;
+	int retThis = 0;
 
 	while (*(s + a) != '\0')
 	{
@@ -20,8 +20,8 @@ int _atoi(char *s)
 		}
 		else if (*(s + a) >= '0' && *(s + a) <= '9')
 		{
-			returnThis *= 10;
-			returnThis += (*(s + a) - 48);
+			retThis *= 10;
+			retThis += (*(s + a) - 48);
 			numFlag = 1;
 		}
 		else if (numFlag == 1)
@@ -30,5 +30,5 @@ int _atoi(char *s)
 		}
 		a++;
 	}
-	return (sign * returnThis);
+	return (sign * retThis);
 }
