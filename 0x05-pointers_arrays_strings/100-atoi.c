@@ -16,18 +16,9 @@ int _atoi(char *s)
 	{
 		if (*(s + a) == '-')
 		{
-			sign *= (-1);
+			sign *= -1;
 		}
-		a++;
-	}
-	if (sign == -1)
-	{
-		_putchar('-');
-	}
-	a = 0;
-	while (*(s + a) != '\0')
-	{
-		if (*(s + a) >= '0' && *(s + a) <= '9')
+		else if (*(s + a) >= '0' && *(s + a) <= '9')
 		{
 			returnThis *= 10;
 			returnThis += (*(s + a) - 48);
@@ -39,5 +30,5 @@ int _atoi(char *s)
 		}
 		a++;
 	}
-	return (returnThis);
+	return (sign * returnThis);
 }
