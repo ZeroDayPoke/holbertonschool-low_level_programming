@@ -30,5 +30,6 @@ int _atoi(char *s)
 		}
 		a++;
 	}
-	return (sign * retThis);
+	retThis = retThis * sign;
+	return (retThis);
 }
