@@ -10,6 +10,7 @@ int _atoi(char *s)
 	int a = 0;
 	int sign = 1;
 	int numFlag = 0;
+	int returnThis = 0;
 
 	while (*(s + a) != '\0')
 	{
@@ -28,17 +29,15 @@ int _atoi(char *s)
 	{
 		if (*(s + a) >= '0' && *(s + a) <= '9')
 		{
-			_putchar(*(s + a));
+			returnThis *= 10;
+			returnThis += (*(s + a) - 48);
 			numFlag = 1;
+		}
+		else if (numFlag == 1)
+		{
+			break;
 		}
 		a++;
 	}
-	if (numFlag != 1)
-	{
-		return (0);
-	}
-	else
-	{
-		return (5);
-	}
+	return (returnThis);
 }
