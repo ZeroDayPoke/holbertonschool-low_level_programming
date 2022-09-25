@@ -6,7 +6,7 @@
  *
  * Description: 'betty compliant example'
  *
- * Return: Always 0 (Success)
+ * Return: Always 1... successful error?
  */
 int main(void)
 {
