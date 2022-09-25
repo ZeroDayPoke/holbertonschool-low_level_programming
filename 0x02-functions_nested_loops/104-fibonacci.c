@@ -9,8 +9,7 @@ int main(void)
 	int numCount = 0;
 	unsigned long num1, num2, num3, num4, num5, num6;
 
-	printf("1, ");
-	printf("2, ");
+	printf("1, 2, ");
 	num1 = 1;
 	num2 = 2;
 	while (numCount < 89)
