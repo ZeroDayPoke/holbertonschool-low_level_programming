@@ -9,9 +9,14 @@
  */
 int main(void)
 {
-	int randChar = (rand() % 128);
+	int i;
+	time_t t;
 
-	srand(time(NULL));
-	printf("%d", randChar);
+	srand((unsigned) time(&t));
+
+	for (i = 0; i < 50; i++)
+	{
+		printf("%d\n", rand() % 128);
+	}
 	return(0);
 }
