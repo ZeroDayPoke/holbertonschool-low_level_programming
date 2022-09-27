@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include "main.h"
 
 /**
  * main - function to crack 101
@@ -16,7 +17,7 @@ int main(void)
 
 	for (i = 0; i < 50; i++)
 	{
-		printf("%d\n", rand() % 128);
+		_putchar(rand() % 128);
 	}
 	return(0);
 }
