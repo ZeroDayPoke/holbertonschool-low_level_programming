@@ -8,8 +8,7 @@
 char *cap_string(char *s)
 {
 	int j, i = 0;
-	char ArrS[] = {',', ';', '.', '!', '?', '"', '(',
-					')', '{', '}', ' ', '\t', '\n'};
+	char ArrS[] = " \t\n,;.!?\"(){}";
 
 	while (s[i])
 	{
