@@ -4,17 +4,24 @@
  * _strcmp - compares strings ASCII values
  * @s1: first string
  * @s2: second string
- * Return: sum of ASCII dif
+ * Return: first dif
  */
 int _strcmp(char *s1, char *s2)
 {
-	int i = 0, sum = 0;
+	int i = 0, dif = 0;
 
 	while (s1[i] && s2[i])
 	{
-		sum += s1[i] - s2[i];
-		i++;
+		if (s1[i] == s2[i])
+		{
+			i++;
+			continue;
+		}
+		else
+		{
+			dif = s1[i] - s2[i];
+			break;
+		}
 	}
-	return (sum);
-	return (*s1 - *s2);
+	return (dif);
 }
