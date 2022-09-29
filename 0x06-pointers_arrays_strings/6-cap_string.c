@@ -13,7 +13,7 @@ char *cap_string(char *s)
 
 	while (s[i])
 	{
-		for (j = 0; j < 13; j++)
+		for (j = 0; ArrS[j]; j++)
 		{
 			if (s[i - 1] == ArrS[j] && (s[i] >= 'a' && s[i] <= 'z'))
 			{
