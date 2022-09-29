@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * *_strstr - locates and points to substr if existing
@@ -20,18 +19,18 @@ char *_strstr(char *haystack, char *needle)
 	while (haystack[j])
 	{
 		hitCount = 0;
-		if (haystack[j] == needle[i])
+		if (haystack[j] == needle[0])
 		{
 			for (i = 0; i < nedLen; i++)
 			{
 				if ((haystack[j + i] == needle[i]) && haystack[j + i] != '\0')
 				{
-					if ((hitCount + 1) == nedLen)
+					hitCount++;
+					if (hitCount == nedLen)
 					{
 						haystack += j;
 						return (haystack);
 					}
-					hitCount++;
 				}
 			}
 		}
