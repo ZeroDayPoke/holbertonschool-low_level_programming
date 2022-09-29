@@ -2,10 +2,20 @@
 
 /**
  * *string_toupper - makes all lowercase uppercase in input str
- * @*: input string
+ * @s: input string
  * Return: stronker str
  */
-char *string_toupper(char *)
+char *string_toupper(char *s)
 {
-	return ('a');
+	int i = 0;
+
+	while (s[i])
+	{
+		if (s[i] >= 'a' && s[i] <= 'z')
+		{
+			s[i] -= 32;
+		}
+		i++;
+	}
+	return (s);
 }
