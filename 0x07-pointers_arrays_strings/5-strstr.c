@@ -19,11 +19,15 @@ char *_strstr(char *haystack, char *needle)
 	while (haystack[j])
 	{
 		hitCount = 0;
+		if (haystack[j + nedLen - 1] == '\0')
+		{
+			return (NULL);
+		}
 		if (haystack[j] == needle[0])
 		{
 			for (i = 0; i < nedLen; i++)
 			{
-				if ((haystack[j + i] == needle[i]) && haystack[j + i] != '\0')
+				if (haystack[j + i] == needle[i])
 				{
 					hitCount++;
 					if (hitCount == nedLen)
