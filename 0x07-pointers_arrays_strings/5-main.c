@@ -9,7 +9,7 @@
 int main(void)
 {
     char *s = "UWU Test String";
-    char *f = "";
+    char *f = NULL;
     char *t;
 
     t = _strstr(s, f);
