@@ -8,24 +8,41 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i; /* declare arbitrary iterator */
+	int i = 0, j = 0, hitCount, nedLen;
 
-	if (!needle[0]) /* catch empty needle */
+	if (!needle[0])
 	{
-		return (haystack); /* return haystack if no comparison possible */
+		return (haystack);
 	}
-	while (*haystack) /* cut haystack till it gets trapped in inner while */
+	while (needle[i])
 	{
-		i = 0; /* reset i from partial target match */
-		while (haystack[i] == needle[i]) /* compare shredded haystack to needle */
+		i++;
+	}
+	nedLen = i;
+	i = 0;
+	while (haystack[j])
+	{
+		hitCount = 0;
+		if (haystack[j + nedLen - 1] == '\0')
 		{
-			if (!(needle[i + 1])) /* check if end of needle (inverse false is true) */
-			{
-				return (haystack); /* returns haystack shredded down to needle */
-			}
-			i++; /* target hit, but not at end of needle, check next char */
+			return (NULL);
 		}
-		haystack++; /* if no target match knock out leading char */
+		if (haystack[j] == needle[0])
+		{
+			for (i = 0; i < nedLen; i++)
+			{
+				if (haystack[j + i] == needle[i])
+				{
+					hitCount++;
+					if (hitCount == nedLen)
+					{
+						haystack += j;
+						return (haystack);
+					}
+				}
+			}
+		}
+		j++;
 	}
-	return (haystack); /* equivalent to null char at this point */
+	return (NULL);
 }
