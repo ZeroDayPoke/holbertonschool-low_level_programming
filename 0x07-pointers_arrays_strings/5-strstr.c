@@ -10,7 +10,7 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i; /* declare arbitrary iterator */
 
-	if (!needle) /* catch null needle */
+	if (!needle[0]) /* catch empty needle */
 	{
 		return (haystack); /* return haystack if no comparison possible */
 	}
