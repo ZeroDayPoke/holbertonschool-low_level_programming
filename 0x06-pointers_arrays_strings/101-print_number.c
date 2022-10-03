@@ -7,26 +7,31 @@
  */
 void print_number(int n)
 {
-	int i, sign, intArr[11];
+	int i, j, sign, orgN, digC = 1;
 
 	if (n < 0)
 	{
 		n *= -1;
 		sign = 1;
 	}
+	orgN = n;
 	for (i = 0; (n / 10); i++)
 	{
-		intArr[i] = (n % 10);
 		n /= 10;
 	}
-	intArr[i] = (n % 10);
+	j = i;
 	for (; i >= 0; i--)
 	{
-		if (sign == 1)
-		{
-			_putchar('-');
-			sign = 0;
-		}
-		_putchar(intArr[i] + '0');
+		digC *= 10;
+	}
+	if (sign == 1)
+	{
+		_putchar('-');
+	}
+	for (; j >= 0; j--)
+	{
+		digC /= 10;
+		_putchar((orgN / digC) + '0');
+		orgN -= (digC * (orgN / digC));
 	}
 }
