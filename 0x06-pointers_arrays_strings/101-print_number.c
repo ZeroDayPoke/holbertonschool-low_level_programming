@@ -28,7 +28,7 @@ void print_number(int n)
 	{
 		_putchar('-');
 		digC /= 10;
-		_putchar(-(orgN / digC) + '0');
+		_putchar(((-orgN / digC) + '0'));
 		orgN -= (digC * (orgN / digC));
 		j--;
 	}
