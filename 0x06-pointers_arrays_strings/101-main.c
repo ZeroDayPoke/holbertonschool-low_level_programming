@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-    print_number(-1125525558);
+    print_number(INT_MAX);
     _putchar('\n');
     print_number(402);
     _putchar('\n');
