@@ -16,7 +16,7 @@ int main(void)
    * - only one statement
    * - you are not allowed to code anything else than this line of code
    */
-  *(p + 2) = 98;
+  *(p + 5) = 2;
   /* ...so that this prints 98\n */
   printf("add of n: %p\n", &n);
   printf("add of a0: %p\n", &(a[0]));
@@ -24,6 +24,7 @@ int main(void)
   printf("add of a2: %p\n", &(a[2]));
   printf("add of a3: %p\n", &(a[3]));
   printf("add of a4: %p\n", &(a[4]));
-  printf("add of p + 2: %p\n", &p + 2);
+  printf("add of n + 3: %p\n", &n + 3);
+  printf("%d\n", a[2]);
   return (0);
 }
