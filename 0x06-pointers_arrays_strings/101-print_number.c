@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * print_number - puts int number to SO
@@ -20,23 +21,23 @@ void print_number(int n)
 		n /= 10;
 	}
 	j = i;
-	for (; i >= 0; i--)
+	for (; i > 0; i--)
 	{
 		digC *= 10;
 	}
 	if (sign != 1)
 	{
 		_putchar('-');
-		digC /= 10;
-		_putchar(((-orgN / digC) + '0'));
+		_putchar(-(orgN / digC) + '0');
 		orgN -= (digC * (orgN / digC));
+		digC /= 10;
 		j--;
 	}
 	orgN *= -1;
 	for (; j >= 0; j--)
 	{
-		digC /= 10;
 		_putchar((orgN / digC) + '0');
 		orgN -= (digC * (orgN / digC));
+		digC /= 10;
 	}
 }
