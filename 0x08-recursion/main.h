@@ -19,5 +19,10 @@ int _sqrt_recursion(int n);
 int _rooter_up(int n, int intCheck);
 int is_prime_number(int n);
 int divisor_incrementor(int n, int divisor);
+int wildcmp(char *s1, char *s2);
+int is_palindrome(char *s);
+int _strcmp(char *s1, char *s2);
+char *_puts_recursion_2(char *s);
+char *_print_rev_recursion_2(char *s, int sLen);
 
 #endif
