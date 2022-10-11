@@ -17,10 +17,14 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 	for (Zard = 0; str[Zard]; Zard++)
-	charArr = malloc(sizeof(char) * Zard);
+	charArr = malloc(sizeof(char) * (Zard + 1));
 	if (!(charArr))
 	{
 		return (NULL);
+	}
+	if (str[0] == 0)
+	{
+		charArr[0] = '\0';
 	}
 	for (i = 0; i <= Zard; i++)
 	{
