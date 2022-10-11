@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _rooter_up - used to increment root since no globals allowed
+ * _rooter_up - used to increment intCheck since no globals allowed
  * @n: num to find sqrt of
  * @intCheck: arb num used to check for sqrt
  * Return: correct intCheck or HCF
@@ -12,11 +12,11 @@ int _rooter_up(int n, int intCheck)
 	{
 		return (intCheck);
 	}
-	else if (intCheck == 0)
+	else if (intCheck == n)
 	{
 		return (-1);
 	}
-	return (_rooter_up(n, intCheck - 1));
+	return (_rooter_up(n, intCheck + 1));
 }
 
 /**
@@ -26,7 +26,7 @@ int _rooter_up(int n, int intCheck)
  */
 int _sqrt_recursion(int n)
 {
-	int intCheck = n;
+	int intCheck = 0;
 
 	if (n < 1)
 	{
