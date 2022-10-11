@@ -29,7 +29,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		/* Betty here 2 */
 	}
-	charArr = malloc(sizeof(char) * (i + Zard));
+	charArr = malloc(sizeof(char) * (i + Zard + 1));
 	if (!(charArr))
 	{
 		return (NULL);
