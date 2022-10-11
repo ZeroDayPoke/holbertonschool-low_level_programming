@@ -17,7 +17,10 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 	for (Zard = 0; str[Zard]; Zard++)
-	charArr = malloc(sizeof(char) * (Zard + 1));
+	{
+		/* Betty 4eva */
+	}
+	charArr = malloc(sizeof(char) * (Zard - 1));
 	if (!(charArr))
 	{
 		return (NULL);
