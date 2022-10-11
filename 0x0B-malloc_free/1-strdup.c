@@ -20,7 +20,7 @@ char *_strdup(char *str)
 	{
 		/* Betty 4eva */
 	}
-	charArr = malloc(sizeof(char) * (Zard - 1));
+	charArr = malloc(sizeof(char) * (Zard + 1));
 	if (!(charArr))
 	{
 		return (NULL);
