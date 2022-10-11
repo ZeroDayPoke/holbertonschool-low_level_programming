@@ -25,11 +25,11 @@ char *str_concat(char *s1, char *s2)
 	{
 		/* Betty 4eva */
 	}
-	for (; s2[i]; i++)
+	for (Zard = 0; s2[Zard]; Zard++)
 	{
 		/* Betty here 2 */
 	}
-	charArr = malloc(sizeof(char) * (i + 2));
+	charArr = malloc(sizeof(char) * (i + Zard));
 	if (!(charArr))
 	{
 		return (NULL);
