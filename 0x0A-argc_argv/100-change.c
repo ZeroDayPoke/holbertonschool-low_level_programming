@@ -50,9 +50,10 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	centz = _atoi(argv[1]);
-	if (centz <= 0)
+	if (centz < 0)
 	{
 		printf("0\n");
+		return (505);
 	}
 	while (centz >= 25)
 	{
