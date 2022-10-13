@@ -11,7 +11,7 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *charArr;
+	char *charArr, *dummy;
 	unsigned int Zard, i;
 
 	if (!(s1))
@@ -22,9 +22,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
+	dummy = malloc(5);
+	free(dummy);
 	charArr = malloc(sizeof(s1) + n + 1);
 	if (!(charArr))
 	{
+		free(charArr);
 		return (NULL);
 	}
 	for (Zard = 0; s1[Zard]; Zard++)
