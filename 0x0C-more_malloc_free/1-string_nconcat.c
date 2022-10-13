@@ -33,9 +33,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		charArr[Zard] = s1[Zard];
 	}
-	for (i = 0; (s2[i] && (i <= n)); i++, Zard++)
+	for (i = 0; (s2[i] && (i < n)); i++, Zard++)
 	{
 		charArr[Zard] = s2[i];
 	}
+	charArr[Zard] = '\0';
 	return (charArr);
 }
