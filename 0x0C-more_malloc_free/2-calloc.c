@@ -6,7 +6,7 @@
  * *_calloc - function that dynamically allocates mem and inits to 0
  * @nmemb: number of memberz in array
  * @size: size of memberz in array
- * Return: void pointer to location of mem allocated or NULL if bad args or malloc fail
+ * Return: void pointer to location of mem or NULL if bad args or malloc fail
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
@@ -14,7 +14,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int i;
 	char *ptr;
 
-	if ((!(nmemb)) || (!(size)) || (nmemb <= 0) || (size <= 0))
+	if ((!(nmemb)) || (!(size)))
 	{
 		return (NULL);
 	}
@@ -27,7 +27,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	ptr = loca;
 	for (i = 0; i < (nmemb * size); i++)
 	{
-		*(ptr + i) = '\0';
+		*(ptr + i) = (int) 0;
 	}
 	return (loca);
 }
