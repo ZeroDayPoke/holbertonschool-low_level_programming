@@ -27,7 +27,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	ptr = loca;
 	for (i = 0; i < (nmemb * size); i++)
 	{
-		*(ptr + i) = (int) 0;
+		*(ptr + i) = 0;
 	}
 	return (loca);
 }
