@@ -11,7 +11,7 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *charArr;
+	char *charArr, *UWU;
 	unsigned int Zard, i;
 
 	if (!(s1))
@@ -22,6 +22,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
+	UWU = malloc(2);
+	free(UWU);
 	charArr = malloc(sizeof(s1) + n + 1);
 	if (!(charArr))
 	{
