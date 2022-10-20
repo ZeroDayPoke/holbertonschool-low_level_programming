@@ -2,24 +2,19 @@
 #define DOGE_H_
 
 /**
- * librars below
- */
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-
-/**
- * struct dog - basic doge struct
+ * struct dog - basic struct of doge
  * @name: name of doge
  * @age: age of doge
  * @owner: owner of doge
+ *
+ * Description: doge structure consists of name, age, and owner
  */
 struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-} dog_t;
+};
 
 /**
  * prototype functions below
