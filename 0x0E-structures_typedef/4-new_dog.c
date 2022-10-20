@@ -1,6 +1,21 @@
 #include "dog.h"
 
 /**
+ * free_dog - function that frees type dog_t doge d
+ * @d: doge to be freed from mem
+ * Return: none (void)
+ */
+void free_dog(dog_t *d)
+{
+	if (d)
+	{
+		free(d->name);
+		free(d->owner);
+		free(d);
+	}
+}
+
+/**
  * *_strcpy - function for to copy chararr
  * @src: source of chararr
  * @dest: destination of chararr
@@ -37,21 +52,19 @@ dog_t *new_dog(char *name, float age, char *owner)
 	newDoge = malloc(sizeof(dog_t));
 	if (!(newDoge))
 	{
-		free(newDoge);
+		free_dog(newDoge);
 		return (NULL);
 	}
 	newDoge->name = malloc(sizeof(name));
 	if (!(newDoge->name))
 	{
-		free(newDoge->name);
-		free(newDoge);
+		free_dog(newDoge);
 		return (NULL);
 	}
 	newDoge->owner = malloc(sizeof(owner));
 	if (!(newDoge->owner))
 	{
-		free(newDoge->owner);
-		free(newDoge);
+		free_dog(newDoge);
 		return (NULL);
 	}
 	newDoge->name = _strcpy(newDoge->name, name);
