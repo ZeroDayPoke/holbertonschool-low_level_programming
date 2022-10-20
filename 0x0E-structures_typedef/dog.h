@@ -8,6 +8,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * struct dog - basic doge struct
+ * @name: name of doge
+ * @age: age of doge
+ * @owner: owner of doge
+ */
 struct dog
 {
 	char *name;
