@@ -1,7 +1,7 @@
 #ifndef DOGE_H_
 #define DOGE_H_
 
-/**
+/*
  * libraries - to be included
  */
 #include <unistd.h>
@@ -23,12 +23,12 @@ struct dog
 	char *owner;
 };
 
-/**
+/*
  * dog_t - Typedef for dog struct
  */
 typedef struct dog dog_t;
 
-/**
+/*
  * prototypes - function protos below
  */
 void init_dog(struct dog *d, char *name, float age, char *owner);
