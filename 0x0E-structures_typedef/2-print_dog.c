@@ -9,7 +9,7 @@ void print_dog(struct dog *d)
 {
 	if (!(d))
 	{
-		exit(-1);
+		exit(EXIT_FAILURE);
 	}
 	if (!((*d).name))
 	{
