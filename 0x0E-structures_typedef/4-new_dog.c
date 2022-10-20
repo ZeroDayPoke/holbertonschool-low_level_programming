@@ -29,23 +29,32 @@ char *_strcpy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newDoge;
+	int i, j;
 
 	if ((!(name)) || (!(owner)) || (age < 0))
 	{
 		return (NULL);
+	}
+	for (i = 0; name[i]; i++)
+	{
+		/* get strlen */
+	}
+	for (j = 0; owner[j]; j++)
+	{
+		/* get strlen */
 	}
 	newDoge = malloc(sizeof(dog_t));
 	if (!(newDoge))
 	{
 		return (NULL);
 	}
-	newDoge->name = malloc(sizeof(name));
+	newDoge->name = malloc(i + 1);
 	if (!(newDoge->name))
 	{
 		free(newDoge);
 		return (NULL);
 	}
-	newDoge->owner = malloc(sizeof(owner));
+	newDoge->owner = malloc(j + 1);
 	if (!(newDoge->owner))
 	{
 		free(newDoge->name);
