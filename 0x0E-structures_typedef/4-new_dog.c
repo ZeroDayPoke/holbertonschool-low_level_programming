@@ -1,6 +1,25 @@
 #include "dog.h"
 
 /**
+ * *_strcpy - function for to copy chararr
+ * @src: source of chararr
+ * @dest: destination of chararr
+ * Return: finaldestination
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int a = 0;
+
+	while (*(src + a))
+	{
+		*(dest + a) = *(src + a);
+		a++;
+	}
+	dest[a] = '\0';
+	return (dest);
+}
+
+/**
  * new_dog - creates new doge w/ dog struct
  * @name: name of doge
  * @age: age of doge
@@ -11,7 +30,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newDoge;
 
-	if (!(name) || !(owner) || age < 0)
+	if (!(name) || age < 0 || !(owner))
 	{
 		return (NULL);
 	}
@@ -33,8 +52,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(newDoge->owner);
 		return (NULL);
 	}
-	newDoge->name = name;
+	newDoge->name = _strcpy(newDoge->name, name);
 	newDoge->age = age;
-	newDoge->owner = owner;
+	newDoge->owner = _strcpy(newDoge->owner, owner);
+	/* printf("%p\n", name); */
+	/* printf("%p\n", newDoge->name); */
 	return (newDoge);
 }
