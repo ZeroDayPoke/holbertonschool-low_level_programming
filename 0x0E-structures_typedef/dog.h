@@ -2,6 +2,13 @@
 #define DOGE_H_
 
 /**
+ * libraries - to be included
+ */
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
  * struct dog - basic struct of doge
  * @name: name of doge
  * @age: age of doge
