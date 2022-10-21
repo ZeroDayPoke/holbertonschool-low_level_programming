@@ -11,9 +11,9 @@ int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 
-	if (!(array) || size < 1 || !(cmp))
+	if (!(array) || size <= 0 || !(cmp))
 	{
-		exit(EXIT_FAILURE);
+		return (-1);
 	}
 	for (i = 0; i < size; i++)
 	{
@@ -22,5 +22,5 @@ int int_index(int *array, int size, int (*cmp)(int))
 			return (i);
 		}
 	}
-	exit(EXIT_FAILURE);
+	return (-1);
 }
