@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints first 102 fib seq nums (exc 0 & 1)
+ * main - prints first 100 fib seq nums (exc 0 & 1)
  * Return: 0 always success
  */
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
 	num5 = num2 / 10000;
 	num6 = num1 % 10000;
 	num7 = num2 % 10000;
-	while (numCount < 98)
+	while (numCount < 96)
 	{
 		num1 = num4 + num5;
 		num2 = num6 + num7;
