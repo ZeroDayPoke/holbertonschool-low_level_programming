@@ -1,13 +1,12 @@
 #include <stdio.h>
 
 /**
- * main - prints first 100 fib seq nums (exc 0 & 1)
+ * main - prints first 100 fib seq nums
  * Return: 0 always success
  */
 int main(void)
 {
-	int numCount = 0;
-	unsigned long num1 = 1, num2 = 2, num3, num4, num5, num6, num7;
+	unsigned long numCount = 0, num1 = 1, num2 = 2, num3, num4, num5, num6, num7;
 
 	printf("1, 2, ");
 	while (numCount < 89)
@@ -22,7 +21,7 @@ int main(void)
 	num5 = num2 / 10000;
 	num6 = num1 % 10000;
 	num7 = num2 % 10000;
-	while (numCount < 96)
+	while (numCount < 97)
 	{
 		num1 = num4 + num5;
 		num2 = num6 + num7;
