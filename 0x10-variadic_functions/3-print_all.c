@@ -65,15 +65,15 @@ void print_all(const char * const format, ...)
 	while (format[i])
 	{
 		j = 0;
-		while ((Arr[j]) && (format[i] != Arr[j]))
+		while (Arr[j])
 		{
+			if (format[i] == Arr[j])
+			{
+				printf("%s", delim);
+				betty[j].fun(varArg);
+				delim = ", ";
+			}
 			j++;
-		}
-		if (Arr[j])
-		{
-			printf("%s", delim);
-			betty[j].fun(varArg);
-			delim = ", ";
 		}
 		i++;
 	}
