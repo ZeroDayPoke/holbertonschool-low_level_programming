@@ -65,7 +65,7 @@ void print_all(const char * const format, ...)
 	bypass betty[] = {{p_all_char}, {p_all_int}, {p_all_float}, {p_all_str}};
 
 	va_start(varArg, format);
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (Arr[j])
