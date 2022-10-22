@@ -21,7 +21,7 @@ int main(void)
 	num5 = num2 / 10000;
 	num6 = num1 % 10000;
 	num7 = num2 % 10000;
-	while (numCount < 95)
+	while (numCount <= 95)
 	{
 		num1 = num4 + num5;
 		num2 = num6 + num7;
@@ -30,21 +30,15 @@ int main(void)
 			num1++;
 			num2 %= 10000;
 		}
-		printf("%lu%lu, ", num1, num2);
+		printf("%lu%lu", num1, num2);
+		if (numCount != 95)
+			printf(", ");
 		numCount++;
 		num4 = num5;
 		num6 = num7;
 		num5 = num1;
 		num7 = num2;
 	}
-	num1 = num4 + num5;
-	num2 = num6 + num7;
-	if (num2 >= 10000)
-	{
-		num1++;
-		num2 %= 10000;
-	}
-	printf("%lu%lu", num1, num2);
 	printf("\n");
 	return (0);
 }
