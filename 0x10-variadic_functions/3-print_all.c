@@ -7,7 +7,7 @@
  */
 void p_all_char(va_list chrArg)
 {
-	printf("%c, ", va_arg(chrArg, int));
+	printf("%c", va_arg(chrArg, int));
 }
 
 /**
@@ -17,7 +17,7 @@ void p_all_char(va_list chrArg)
  */
 void p_all_int(va_list intArg)
 {
-	printf("%d, ", va_arg(intArg, int));
+	printf("%d", va_arg(intArg, int));
 }
 
 /**
@@ -27,7 +27,7 @@ void p_all_int(va_list intArg)
  */
 void p_all_float(va_list fltArg)
 {
-	printf("%f, ", va_arg(fltArg, double));
+	printf("%f", va_arg(fltArg, double));
 }
 
 /**
@@ -42,9 +42,9 @@ void p_all_str(va_list strArg)
 	charArr = va_arg(strArg, char *);
 	if (!(charArr))
 	{
-		printf("(nil), ");
+		printf("(nil)");
 	}
-	printf("%s, ", charArr);
+	printf("%s", charArr);
 }
 
 /**
@@ -56,6 +56,7 @@ void print_all(const char * const format, ...)
 {
 	unsigned int i = 0, j;
 	va_list varArg;
+	char *delim = "";
 	char Arr[] = "cifs";
 	bypass betty[] = {{p_all_char}, {p_all_int}, {p_all_float}, {p_all_str}};
 
@@ -69,7 +70,9 @@ void print_all(const char * const format, ...)
 		}
 		if (Arr[j])
 		{
+			printf("%s", delim);
 			betty[j].fun(varArg);
+			delim = ", ";
 		}
 		i++;
 	}
