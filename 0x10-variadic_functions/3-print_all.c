@@ -27,7 +27,10 @@ void p_all_int(va_list intArg)
  */
 void p_all_float(va_list fltArg)
 {
-	printf("%f", va_arg(fltArg, double));
+	float fltu;
+
+	fltu = va_arg(fltArg, double);
+	printf("%f", fltu);
 }
 
 /**
