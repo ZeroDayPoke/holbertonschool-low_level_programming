@@ -40,7 +40,7 @@ void p_all_str(va_list strArg)
 	char *charArr;
 
 	charArr = va_arg(strArg, char *);
-	if (!(*charArr))
+	if (charArr == NULL)
 	{
 		printf("(nil)");
 		return;
