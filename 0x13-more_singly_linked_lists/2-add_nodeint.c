@@ -2,7 +2,7 @@
 
 /**
  * add_nodeint - function that adds new intnode to sll
- * @h: sll HEAD pointer
+ * @head: sll HEAD pointer
  * @n: int mem val of new intnode
  * Return: NULL on bad magic else add of new intnode
  */
