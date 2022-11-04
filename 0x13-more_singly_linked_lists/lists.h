@@ -10,6 +10,19 @@
 #include <string.h>
 #include <stdarg.h>
 
+/**
+ * struct sll - singularly linked list struct containing ints
+ * @n: int of associated node
+ * @next: pointer to next sll struct
+ *
+ * Description: sll int node struct
+ */
+typedef struct sll
+{
+	int n;
+	struct sll *next;
+} listint_t;
+
 /*
  * prototypes - function protos below
  */
