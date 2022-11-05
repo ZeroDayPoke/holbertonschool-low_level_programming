@@ -3,7 +3,7 @@
 /**
  * insert_nodeint_at_index - inserts new intnode into sll cont n at index
  * @head: sll HEAD pointer
- * @index: sll node position to insert new node
+ * @idx: sll node position to insert new node
  * @n: int n to be associated w/ new node
  * Return: add of new node or NULL on bad magic
  */
