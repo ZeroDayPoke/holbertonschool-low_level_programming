@@ -9,6 +9,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char *letsCopy;
+	int checkOpen = 0, checkRead = 0, checkWrite = 0;
 
 	if (!(filename))
 	{
@@ -16,6 +17,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	letsCopy = malloc(letters);
 	if (!(letsCopy))
+	{
+		return (0);
+	}
+	checkOpen = open(filename, O_RDONLY);
+	checkRead = read(checkOpen, letsCopy, letters);
+	checkWrite = write(STDOUT_FILENO, letsCopy, checkRead);
+	if (checkOpen < 0 || checkRead < 0 || checkWrite < 0)
 	{
 		return (0);
 	}
