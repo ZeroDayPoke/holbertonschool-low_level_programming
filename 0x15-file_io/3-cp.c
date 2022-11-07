@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
 	{
 		exit(EXIT_FAILURE);
 	}
-	buff = argv[2];
 	openRetVal1 = open(argv[1], O_RDONLY);
 	readRetVal = read(openRetVal1, buff, 1024);
 	if (readRetVal < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		free(buff);
 		exit(98);
 	}
 	openRetVal2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -35,9 +35,11 @@ int main(int argc, char *argv[])
 	if (writeRetVal < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		free(buff);
 		exit(99);
 	}
-	readRetVal = open(argv[2], O_WRONLY | O_APPEND);
+	readRetVal = read(openRetVal1, buff, 1024);
+	openRetVal2 = open(argv[2], O_WRONLY | O_APPEND);
 	free(buff);
 	closeVal1 = close(openRetVal1);
 	closeVal2 = close(openRetVal2);
