@@ -13,6 +13,7 @@ void errHand(int eNum, char *buff, char *a1, char *a2)
 	if (eNum == 97)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		free(buff);
 		exit(97);
 	}
 	else if (eNum == 98)
@@ -52,11 +53,11 @@ int main(int argc, char *argv[])
 	}
 	openRetVal1 = open(argv[1], O_RDONLY);
 	readRetVal = read(openRetVal1, buff, 1024);
-	if (readRetVal < 0)
+	if (readRetVal < 0 || openRetVal1 < 0)
 		errHand(98, buff, a1, a2);
 	openRetVal2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	writeRetVal = write(openRetVal2, buff, readRetVal);
-	if (writeRetVal < 0)
+	if (writeRetVal < 0 || openRetVal2 < 0)
 		errHand(99, buff, a1, a2);
 	readRetVal = read(openRetVal1, buff, 1024);
 	openRetVal2 = open(argv[2], O_WRONLY | O_APPEND);
