@@ -14,9 +14,12 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	while (text_content[txtLen])
+	if (text_content)
 	{
-		txtLen++;
+		while (text_content[txtLen])
+		{
+			txtLen++;
+		}
 	}
 	oNum = open(filename, O_WRONLY | O_APPEND);
 	wNum = write(oNum, text_content, txtLen);
