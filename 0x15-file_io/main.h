@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <fcntl.h>
 
 /*
  * prototypes - function protos below
