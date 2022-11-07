@@ -1,6 +1,35 @@
 #include "main.h"
 
 /**
+ * errHand - handles errors for cp
+ * @eNum: associated error number
+ * @buff: buffer memory location
+ * @a1: argv1 from main
+ * @a2: argv2 from main
+ * Return: void
+ */
+void errHand(int eNum, char *buff, char *a1, char *a2)
+{
+	if (eNum == 97)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	else if (eNum == 98)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", a1);
+		free(buff);
+		exit(98);
+	}
+	else if (eNum == 99)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", a2);
+		free(buff);
+		exit(99);
+	}
+}
+
+/**
  * main - check the code
  * @argc: total arguments supplied to cp
  * @argv: pointer to array of argv strs supplied to cp
@@ -8,16 +37,15 @@
  */
 int main(int argc, char *argv[])
 {
-	char *buff;
+	char *buff, *a1, *a2;
 	int openRetVal1 = 0, openRetVal2 = 0, writeRetVal = 0,
 	readRetVal = 0, closeVal1 = 0, closeVal2 = 0;
 
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+	a1 = argv[1];
+	a2 = argv[2];
 	buff = malloc(1024);
+	if (argc != 3)
+		errHand(97, buff, a1, a2);
 	if (!(buff))
 	{
 		exit(EXIT_FAILURE);
@@ -25,19 +53,11 @@ int main(int argc, char *argv[])
 	openRetVal1 = open(argv[1], O_RDONLY);
 	readRetVal = read(openRetVal1, buff, 1024);
 	if (readRetVal < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		free(buff);
-		exit(98);
-	}
+		errHand(98, buff, a1, a2);
 	openRetVal2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	writeRetVal = write(openRetVal2, buff, readRetVal);
 	if (writeRetVal < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		free(buff);
-		exit(99);
-	}
+		errHand(99, buff, a1, a2);
 	readRetVal = read(openRetVal1, buff, 1024);
 	openRetVal2 = open(argv[2], O_WRONLY | O_APPEND);
 	free(buff);
