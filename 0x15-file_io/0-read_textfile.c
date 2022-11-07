@@ -19,5 +19,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	return (write(STDOUT_FILENO, letsCopy, (read(open(filename, O_RDONLY), letsCopy, letters))));
+	return (write(STDOUT_FILENO, letsCopy,
+	(read(open(filename, O_RDONLY), letsCopy, letters))));
 }
