@@ -10,22 +10,20 @@
  */
 void errHand(int eNum, char *buff, char *a1, char *a2)
 {
+	free(buff);
 	if (eNum == 97)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		free(buff);
 		exit(97);
 	}
 	else if (eNum == 98)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", a1);
-		free(buff);
 		exit(98);
 	}
 	else if (eNum == 99)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", a2);
-		free(buff);
 		exit(99);
 	}
 }
@@ -48,19 +46,20 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 		errHand(97, buff, a1, a2);
 	if (!(buff))
-	{
 		exit(EXIT_FAILURE);
-	}
 	openRetVal1 = open(argv[1], O_RDONLY);
 	readRetVal = read(openRetVal1, buff, 1024);
-	if (readRetVal < 0 || openRetVal1 < 0)
-		errHand(98, buff, a1, a2);
 	openRetVal2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	writeRetVal = write(openRetVal2, buff, readRetVal);
-	if (writeRetVal < 0 || openRetVal2 < 0)
-		errHand(99, buff, a1, a2);
-	readRetVal = read(openRetVal1, buff, 1024);
-	openRetVal2 = open(argv[2], O_WRONLY | O_APPEND);
+	while (readRetVal > 0)
+	{
+		if (readRetVal < 0 || openRetVal1 < 0)
+			errHand(98, buff, a1, a2);
+		writeRetVal = write(openRetVal2, buff, readRetVal);
+		if (writeRetVal < 0 || openRetVal2 < 0)
+			errHand(99, buff, a1, a2);
+		readRetVal = read(openRetVal1, buff, 1024);
+		openRetVal2 = open(argv[2], O_WRONLY | O_APPEND);
+	}
 	free(buff);
 	closeVal1 = close(openRetVal1);
 	closeVal2 = close(openRetVal2);
