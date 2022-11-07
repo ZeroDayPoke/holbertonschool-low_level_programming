@@ -23,10 +23,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	checkOpen = open(filename, O_RDONLY);
 	checkRead = read(checkOpen, letsCopy, letters);
 	checkWrite = write(STDOUT_FILENO, letsCopy, checkRead);
-	if (checkOpen < 0 || checkRead < 0 || checkWrite < 0 || checkWrite != checkRead)
+	if (checkOpen < 0 || checkRead < 0 ||
+	checkWrite < 0 || checkWrite != checkRead)
 	{
+		free(letsCopy);
 		return (0);
 	}
+	free(letsCopy);
+	close(checkOpen);
 	return (write(STDOUT_FILENO, letsCopy,
 	(read(open(filename, O_RDONLY), letsCopy, letters))));
 }
