@@ -8,7 +8,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int txtLen = 0, oNum;
+	int txtLen = 0, oNum = 0, wNum = 0;
 
 	if (!(filename))
 	{
@@ -20,6 +20,10 @@ int create_file(const char *filename, char *text_content)
 	}
 	oNum = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0700);
 	write(oNum, text_content, txtLen);
+	if (oNum < 0 || wNum < 0)
+	{
+		return (-1);
+	}
 	close(oNum);
 	return (1);
 }
