@@ -50,6 +50,8 @@ int main(int argc, char *argv[])
 	openRetVal1 = open(argv[1], O_RDONLY);
 	readRetVal = read(openRetVal1, buff, 1024);
 	openRetVal2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (readRetVal < 0 || openRetVal1 < 0)
+		errHand(98, buff, a1, a2);
 	while (readRetVal > 0)
 	{
 		if (readRetVal < 0 || openRetVal1 < 0)
