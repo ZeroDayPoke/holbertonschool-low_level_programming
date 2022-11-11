@@ -9,6 +9,10 @@ size_t print_dlistint_backward(const dlistint_t *h)
 {
 	size_t nodeNum = 0, nodeTotal;
 
+	if (!(h))
+	{
+		return (nodeNum);
+	}
 	/* cycles thru dll till last node add */
 	while (h->next)
 	{
