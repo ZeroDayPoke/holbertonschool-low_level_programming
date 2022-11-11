@@ -21,6 +21,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	newNode->prev = NULL;
 	newNode->next = *head;
 	/* put at beginning of dll */
+	(*head)->prev = newNode;
 	*head = newNode;
 	return (newNode);
 }
