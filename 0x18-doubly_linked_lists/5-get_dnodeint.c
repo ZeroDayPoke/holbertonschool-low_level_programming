@@ -12,7 +12,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	dlistint_t *targetNode = NULL;
 
 	/* cycles thru dll incrementing pos and checking index */
-	while (head->next && (currentPos != index))
+	while (currentPos != index)
 	{
 		if (!(head))
 		{
