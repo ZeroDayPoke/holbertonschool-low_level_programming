@@ -37,7 +37,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	else
 	{
 		targetCycler->prev->next = targetCycler->next;
-		targetCycler->next->prev = targetCycler->prev;
+		if (targetCycler->next)
+		{
+			targetCycler->next->prev = targetCycler->prev;
+		}
 	}
 	free(targetCycler);
 	return (1);
