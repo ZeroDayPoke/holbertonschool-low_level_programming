@@ -33,7 +33,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			(*head)->prev = NULL;
 		}
 	}
-	/* if not then set prev next mem to next */
+	/* if not break out the node by redirecting pointers */
 	else
 	{
 		targetCycler->prev->next = targetCycler->next;
