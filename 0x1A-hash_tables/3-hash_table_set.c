@@ -24,7 +24,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hashKey = hash_djb2((const unsigned char *)key);
 	idx = hashKey % ht->size;
 	/* check if key already exists and if so update its value pair */
-	for (i = 0; ht->array[i]; i++)
+	for (i = idx; ht->array[i]; i++)
 	{
 		if (!(strcmp(key, ht->array[i]->key)))
 		{
