@@ -14,6 +14,10 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	/* cycles thru dll incrementing pos and checking index */
 	while (head->next && (currentPos != index))
 	{
+		if (!(head))
+		{
+			return (NULL);
+		}
 		head = head->next;
 		currentPos++;
 	}
