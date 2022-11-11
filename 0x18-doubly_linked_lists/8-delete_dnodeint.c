@@ -28,11 +28,16 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (*head == targetCycler)
 	{
 		*head = targetCycler->next;
+		if (*head)
+		{
+			(*head)->prev = NULL;
+		}
 	}
 	/* if not then set prev next mem to next */
 	else
 	{
 		targetCycler->prev->next = targetCycler->next;
+		targetCycler->next->prev = targetCycler->prev;
 	}
 	free(targetCycler);
 	return (1);
