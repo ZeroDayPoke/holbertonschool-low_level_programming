@@ -29,8 +29,12 @@ void hash_table_delete(hash_table_t *ht)
 				scrubber2 = scrubber1->next;
 				free(scrubber1->value);
 				free(scrubber1->key);
+				free(scrubber1);
 				scrubber1 = scrubber2;
 			}
+		}
+		else
+		{
 			free(ht->array[i]);
 		}
 	}
