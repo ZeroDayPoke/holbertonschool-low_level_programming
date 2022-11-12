@@ -19,9 +19,13 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	/* cycle thru array and check for key */
 	for (i = idx; ht->array[i]; i++)
 	{
-		if (!(strcmp(key, ht->array[i]->key)))
+		while (ht->array[i])
 		{
-			return (ht->array[i]->value);
+			if (!(strcmp(key, ht->array[i]->key)))
+			{
+				return (ht->array[i]->value);
+			}
+			ht->array[i] = ht->array[i]->next;
 		}
 	}
 	/* at this point the array has been cycled thru so... */
