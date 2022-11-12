@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * delete_dnoteint_at_index - removes node at index from dll
+ * delete_dnodeint_at_index - removes node at index from dll
  * @head: pointer to first node in dll
  * @index: index num of node to delete
  * Return: 1 on success -1 on fail
