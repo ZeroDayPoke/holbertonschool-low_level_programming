@@ -10,7 +10,7 @@ void hash_table_delete(hash_table_t *ht)
 	unsigned long int i;
 	hash_node_t *scrubber1, *scrubber2;
 
-	if (!(ht))
+	if (!(ht) || !(ht->size) || !(ht->array))
 	{
 		return;
 	}
@@ -29,8 +29,6 @@ void hash_table_delete(hash_table_t *ht)
 			}
 		}
 	}
-	free(scrubber1);
-	free(scrubber2);
 	free(ht->array);
 	free(ht);
 }
