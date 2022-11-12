@@ -19,12 +19,11 @@ void hash_table_delete(hash_table_t *ht)
 		loader = ht->array[i];
 		while (loader != NULL)
 		{
-			scrubber = loader->next;
-			if (loader->value)
-				free(loader->value);
-			free(loader->key);
-			free(loader);
-			loader = scrubber;
+			scrubber = loader;
+			loader = scrubber->next;
+			free(scrubber->value);
+			free(scrubber->key);
+			free(scrubber);
 		}
 	}
 	free(ht->array);
