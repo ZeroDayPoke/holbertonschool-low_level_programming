@@ -24,6 +24,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		targetCycler = targetCycler->next;
 		index--;
 	}
+	if (!(targetCycler) && !(index))
+		return (-1);
 	/* check if we're at the beginning of dll */
 	if (*head == targetCycler)
 	{
