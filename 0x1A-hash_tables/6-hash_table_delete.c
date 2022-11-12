@@ -10,8 +10,13 @@ void hash_table_delete(hash_table_t *ht)
 	unsigned long int i;
 	hash_node_t *scrubber1, *scrubber2;
 
-	if (!(ht) || !(ht->size) || !(ht->array))
+	if (!(ht))
 	{
+		return;
+	}
+	else if (!(ht->array) || ht->size <= 0)
+	{
+		free(ht);
 		return;
 	}
 	for (i = 0; i < ht->size; i++)
