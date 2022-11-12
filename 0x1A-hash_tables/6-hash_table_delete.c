@@ -27,8 +27,6 @@ void hash_table_delete(hash_table_t *ht)
 				free(scrubber1);
 				scrubber1 = scrubber2;
 			}
-			free(ht->array[i]->key);
-			free(ht->array[i]->value);
 		}
 	}
 	free(ht->array);
