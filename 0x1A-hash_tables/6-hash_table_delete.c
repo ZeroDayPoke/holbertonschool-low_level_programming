@@ -8,7 +8,7 @@
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i;
-	hash_node_t *scrubber;
+	hash_node_t *scrubber, *loader;
 
 	if (!(ht))
 	{
@@ -21,20 +21,17 @@ void hash_table_delete(hash_table_t *ht)
 	}
 	for (i = 0; i < ht->size; i++)
 	{
-		if (ht->array[i])
+		loader = ht->array[i];
+		while (loader)
 		{
-			while (ht->array[i])
-			{
-				scrubber = ht->array[i]->next;
-				if (ht->array[i]->value)
-					free(ht->array[i]->value);
-				free(ht->array[i]->key);
-				free(ht->array[i]);
-				ht->array[i] = scrubber;
-			}
-			free(ht->array[i]);
-			free(scrubber);
+			scrubber = loader->next;
+			if (loader->value)
+				free(loader->value);
+			free(loader->key);
+			free(loader);
+			loader = scrubber;
 		}
+		free(ht->array[i]);
 	}
 	free(ht->array);
 	free(ht);
