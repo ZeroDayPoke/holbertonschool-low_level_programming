@@ -7,7 +7,7 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i;
+	unsigned long int i, stupidcommas = 0;
 
 	if (!(ht))
 	{
@@ -18,16 +18,13 @@ void hash_table_print(const hash_table_t *ht)
 	{
 		while (ht->array[i])
 		{
-			if (ht->array[i]->next)
+			if (stupidcommas == 1)
 			{
-				printf("'%s' : '%s', ", ht->array[i]->key, ht->array[i]->value);
-				ht->array[i] = ht->array[i]->next;
+				printf(", ");
 			}
-			else
-			{
-				printf("'%s' : '%s', ", ht->array[i]->key, ht->array[i]->value);
-				ht->array[i] = ht->array[i]->next;
-			}
+			stupidcommas = 1;
+			printf("'%s' : '%s'", ht->array[i]->key, ht->array[i]->value);
+			ht->array[i] = ht->array[i]->next;
 		}
 	}
 	printf("}\n");
