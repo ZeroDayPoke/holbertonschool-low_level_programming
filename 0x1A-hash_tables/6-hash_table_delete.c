@@ -9,7 +9,6 @@ void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i;
 	hash_node_t *scrubber, *loader;
-	hash_table_t *hth = ht;
 
 	if (!(ht))
 	{
@@ -33,6 +32,6 @@ void hash_table_delete(hash_table_t *ht)
 			loader = scrubber;
 		}
 	}
-	free(hth->array);
-	free(hth);
+	free(ht->array);
+	free(ht);
 }
