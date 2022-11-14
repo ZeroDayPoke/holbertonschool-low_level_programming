@@ -31,6 +31,13 @@ void hash_table_delete(hash_table_t *ht)
 			free(loader);
 			loader = scrubber;
 		}
+		if (loader->key == 0)
+		{
+			if (loader->value)
+				free(loader->value);
+			free(loader->key);
+			free(loader);
+		}
 	}
 	free(ht->array);
 	free(ht);
