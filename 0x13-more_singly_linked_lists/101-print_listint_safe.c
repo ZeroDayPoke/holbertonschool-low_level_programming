@@ -49,7 +49,7 @@ size_t numNodes(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *nodeA;
+	listint_t *nodeA;
 	size_t count = 0, i = 0;
 
 	count = numNodes(head);
