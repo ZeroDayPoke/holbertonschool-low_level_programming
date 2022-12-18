@@ -6,7 +6,7 @@
  * @head: sll HEAD pointer
  * Return: num of nodes in circular or 0
  */
-size_t numNodes(const listint_t *head)
+size_t numNodes(listint_t *head)
 {
 	const listint_t *nodeA, *nodeB;
 	size_t count = 1;
@@ -47,7 +47,7 @@ size_t numNodes(const listint_t *head)
  * @head: sll HEAD pointer
  * Return: num of nodes in list
  */
-size_t print_listint_safe(const listint_t *head)
+size_t print_listint_safe(listint_t *head)
 {
 	size_t count = 0, i = 0;
 
