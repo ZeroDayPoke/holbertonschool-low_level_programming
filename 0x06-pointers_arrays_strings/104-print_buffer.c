@@ -19,8 +19,10 @@ void print_buffer(char *b, int size)
 	{
 		if (i % 10 == 0)
 			printf("%.8x: ", i);
-		if (i % 2 == 0)
+		if (b[i] && (i % 2 == 0))
 			printf("%.2x%.2x ", b[i], b[i + 1]);
+		else if (!(b[i + 1]))
+			printf("%.2x ", b[i + 1]);
 		if (i % 10 == 9)
 		{
 			for (j = i - 9; j <= i; j++)
@@ -32,10 +34,6 @@ void print_buffer(char *b, int size)
 	if (remaining > 0)
 	{
 		for (i = 0; i < 10 - remaining; i++)
-			printf("  ");
-		if (b[i + 1])
-			printf("  ");
-		else
 			putchar(' ');
 		for (i = size - remaining; i < size; i++)
 			putchar(isprint(b[i]) ? b[i] : '.');
