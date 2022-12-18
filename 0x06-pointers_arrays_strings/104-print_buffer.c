@@ -36,6 +36,8 @@ void print_buffer(char *b, int size)
 		{
 			putchar(' ');
 			putchar(' ');
+			if (i % 2 == 1)
+				putchar(' ');
 		}
 		putchar(' ');
 		for (i = size - remaining; i < size; i++)
