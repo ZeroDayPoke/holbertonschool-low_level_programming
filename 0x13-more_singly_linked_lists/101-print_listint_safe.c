@@ -49,28 +49,26 @@ size_t numNodes(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	listint_t *nodeA;
 	size_t count = 0, i = 0;
 
 	count = numNodes(head);
-	nodeA = head;
 	if (count == 0)
 	{
-		while (nodeA)
+		while (head)
 		{
 			count++;
-			printf("[%p] %d\n", (void *)nodeA, nodeA->n);
-			nodeA = nodeA->next;
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
 		}
 	}
 	else
 	{
 		for (i = 0; i < count; i++)
 		{
-			printf("[%p] %d\n", (void *)nodeA, nodeA->n);
-			nodeA = nodeA->next;
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
 		}
-		printf("-> [%p] %d\n", (void *)nodeA, nodeA->n);
+		printf("-> [%p] %d\n", (void *)head, head->n);
 	}
 	return (count);
 }
