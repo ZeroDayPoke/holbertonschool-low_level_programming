@@ -27,7 +27,10 @@ void print_buffer(char *b, int size)
     {
         for (i = 0; i < 10 - remaining; i++)
             printf("  ");
-        printf("  ");
+		if (b[i + 1])
+        	printf("  ");
+		else
+			putchar(' ');
         for (i = size - remaining; i < size; i++)
             putchar(isprint(b[i]) ? b[i] : '.');
         putchar('\n');
