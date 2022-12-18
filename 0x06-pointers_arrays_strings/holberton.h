@@ -5,6 +5,8 @@
  * librars below
  */
 #include <unistd.h>
+#include <stdio.h>
+#include <ctype.h>
 
 /**
  * prototype functions below
