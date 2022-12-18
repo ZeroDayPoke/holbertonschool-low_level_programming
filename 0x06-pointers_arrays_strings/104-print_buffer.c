@@ -33,8 +33,8 @@ void print_buffer(char *b, int size)
 	if (remaining > 0)
 	{
 		for (i = 0; i < 10 - remaining; i++)
-			putchar(' ');
-		putchar(' ');
+			printf("  ");
+		printf("  ");
 		for (i = size - remaining; i < size; i++)
 			putchar(isprint(b[i]) ? b[i] : '.');
 		putchar('\n');
