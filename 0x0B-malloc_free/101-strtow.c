@@ -21,7 +21,6 @@ int _strlen(char *s)
 /**
  * tok_num - calcs num of toks in str
  * @str: string to tokenize
- * @delims: delims to tokenize based on
  * Return: num of tokens in overall str
  */
 int tok_num(char *str)
@@ -43,7 +42,6 @@ int tok_num(char *str)
 /**
  * substrLen - computes length of substr / token
  * @str: string in question
- * @delims: delims to tok based on
  * Return: length of substr
  */
 int substrLen(char *str)
@@ -70,6 +68,8 @@ char **strtow(char *str)
 	if (!str)
 		return (NULL);
 	if (!(*str))
+		return (NULL);
+	if (tok_num(str) == 0)
 		return (NULL);
 	tokTotal = tok_num(str);
 	tokenStorage = malloc(sizeof(char *) * (tokTotal + 1));
