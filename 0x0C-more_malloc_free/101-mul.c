@@ -52,6 +52,20 @@ int is_digits(char *str)
 }
 
 /**
+ * cleanleadz - moves pointer past leading 0s
+ * @str: string in question
+ * Return: sanitized str
+*/
+char *cleanleadz(char *str)
+{
+	while (*str && *str == '0')
+	{
+		str++;
+	}
+	return (str);
+}
+
+/**
  * print_number - puts long to SO
  * @n: input number
  * Return: void
@@ -111,6 +125,15 @@ int main(int argc, char *argv[])
 	{
     	write(STDOUT_FILENO, "Error\n", 6);
 		exit(98);
+	}
+	if (argv[1][0] == '0')
+		argv[1] = cleanleadz(argv[1]);
+	if (argv[2][0] == '0')
+		argv[2] = cleanleadz(argv[2]);
+	if (!(argv[1] || !argv[2]))
+	{
+		write(STDOUT_FILENO, "0\n", 2);
+		return (0);
 	}
 	num1 = str_to_long(argv[1]);
 	num2 = str_to_long(argv[2]);

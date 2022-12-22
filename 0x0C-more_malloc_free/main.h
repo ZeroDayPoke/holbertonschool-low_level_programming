@@ -24,5 +24,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int is_digits(char *str);
 long str_to_long(char *str);
 void print_number(long n);
+char *cleanleadz(char *str);
 
 #endif
