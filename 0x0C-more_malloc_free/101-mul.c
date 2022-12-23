@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
 			tmpBuff[j] = '0';
 		}
 	}
-	cleanleadz(prodBuff);
+	prodBuff = cleanleadz(prodBuff);
 	for (j = 0; j < maxLen; j++)
 		_putchar(prodBuff[j]);
 	_putchar('\n');
