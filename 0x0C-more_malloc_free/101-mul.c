@@ -132,12 +132,11 @@ int main(int argc, char *argv[])
 			tmpBuff[j] = '0';
 		}
 	}
-	for (j = 0; j < maxLen; j++)
-	{
-		while (prodBuff[j] == '0')
-			j++;
-		_putchar(prodBuff[j]);
-	}
+	i = 0;
+	while (prodBuff[i] == '0')
+		i++;
+	for (; i < maxLen; i++)
+		_putchar(prodBuff[i]);
 	_putchar('\n');
 	free(tmpBuff);
 	free(prodBuff);
