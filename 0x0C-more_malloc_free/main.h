@@ -22,8 +22,9 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int is_digits(char *str);
-long str_to_long(char *str);
+int _strlen(char *s);
 void print_number(long n);
 char *cleanleadz(char *str);
+char *makeBuff(int prodLenMax);
 
 #endif

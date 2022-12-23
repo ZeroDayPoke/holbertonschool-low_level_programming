@@ -1,33 +1,19 @@
 #include "main.h"
 
 /**
- * str_to_long - converts str to long
- * @str: string in question
- * Return: converted str or 0 if not compat
-*/
-long str_to_long(char *str)
+ * _strlen - function to find length of string
+ * @s: string input
+ * Return: string length
+ */
+int _strlen(char *s)
 {
-	long result = 0, negNum, i;
+	int a = 0;
 
-	if (str[0] == '\0')
+	while (*(s + a) != '\0')
 	{
-		return (0);
+		a++;
 	}
-	negNum = 0;
-	if (str[0] == '-')
-	{
-		negNum = 1;
-		str++;
-	}
-	for (i = 0; str[i]; i++)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		if (result > (LONG_MAX - (str[i] - '0')) / 10)
-			return (0);
-		result = result * 10 + (str[i] - '0');
-	}
-	return (negNum ? -result : result);
+	return (a);
 }
 
 /**
@@ -66,44 +52,24 @@ char *cleanleadz(char *str)
 }
 
 /**
- * print_number - puts long to SO
- * @n: input number
- * Return: void
+ * makeBuff - creates storage for max prod str
+ * @prodLenMax: max product size inc term byte
+ * Return: pointer to buff
  */
-void print_number(long n)
+char *makeBuff(int prodLenMax)
 {
-	long i, j, sign = 0, orgN, digC = 1;
+	char *daBuff;
+	int i;
 
-	if (n >= 0)
+	daBuff = malloc(sizeof(char) * prodLenMax);
+	if (!daBuff)
+		exit(EXIT_FAILURE);
+	for (i = 0; i < (prodLenMax - 1); i++)
 	{
-		n *= -1;
-		sign = 1;
+		daBuff[i] = '0';
 	}
-	orgN = n;
-	for (i = 0; (n / 10); i++)
-	{
-		n /= 10;
-	}
-	j = i;
-	for (; i > 0; i--)
-	{
-		digC *= 10;
-	}
-	if (sign != 1)
-	{
-		_putchar('-');
-		_putchar(-(orgN / digC) + '0');
-		orgN -= (digC * (orgN / digC));
-		digC /= 10;
-		j--;
-	}
-	orgN *= -1;
-	for (; j >= 0; j--)
-	{
-		_putchar((orgN / digC) + '0');
-		orgN -= (digC * (orgN / digC));
-		digC /= 10;
-	}
+	daBuff[i] = '\0';
+	return (daBuff);
 }
 
 /**
@@ -114,7 +80,8 @@ void print_number(long n)
  */
 int main(int argc, char *argv[])
 {
-	long num1, num2, result;
+	long i, j, num1Len, num2Len, maxLen, digC, tProd, fillD;
+	char *prodBuff, *tmpBuff;
 
 	if (argc != 3)
 	{
@@ -123,7 +90,7 @@ int main(int argc, char *argv[])
 	}
 	if (!is_digits(argv[1]) || !is_digits(argv[2]))
 	{
-    	write(STDOUT_FILENO, "Error\n", 6);
+		write(STDOUT_FILENO, "Error\n", 6);
 		exit(98);
 	}
 	if (argv[1][0] == '0')
@@ -135,10 +102,41 @@ int main(int argc, char *argv[])
 		write(STDOUT_FILENO, "0\n", 2);
 		return (0);
 	}
-	num1 = str_to_long(argv[1]);
-	num2 = str_to_long(argv[2]);
-	result = (num1 * num2);
-	print_number(result);
-	write(STDOUT_FILENO, "\n", 1);
+	num1Len = (_strlen(argv[1]));
+	num2Len = (_strlen(argv[2]));
+	maxLen = num1Len + num2Len;
+	prodBuff = makeBuff(maxLen + 1);
+	tmpBuff = makeBuff(maxLen + 1);
+	for (i = 0; i < num1Len; i++)
+	{
+		for (j = 0; j < num2Len; j++)
+		{
+			digC = (num1Len - i) + (num2Len - j);
+			tProd = ((argv[1][i]) - '0') * ((argv[2][j]) - '0');
+			if (tProd > 9)
+			{
+				tmpBuff[maxLen - digC] += (tProd / 10);
+			}
+			tmpBuff[maxLen - digC + 1] += (tProd % 10);
+		}
+		for (j = (maxLen - 1); j >= 0; j--)
+		{
+			fillD = ((tmpBuff[j] - '0') + (prodBuff[j] - '0'));
+			if (fillD > 9)
+			{
+				prodBuff[j - 1] = prodBuff[j - 1] + 1;
+				prodBuff[j] = ((fillD % 10) + '0');
+			}
+			else
+				prodBuff[j] = (fillD + '0');
+			tmpBuff[j] = '0';
+		}
+	}
+	cleanleadz(prodBuff);
+	for (j = 0; j < maxLen; j++)
+		_putchar(prodBuff[j]);
+	_putchar('\n');
+	free(tmpBuff);
+	free(prodBuff);
 	return (0);
 }
