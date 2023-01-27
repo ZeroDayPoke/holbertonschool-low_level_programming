@@ -10,9 +10,9 @@
 int main(void)
 {
 	char charArr[] = "_putchar";
-	int i;
+	int i = 0;
 
-	for (i = 0; i < 8; i++)
+	for (; i < 8; i++)
 	{
 		_putchar(charArr[i]);
 	}
