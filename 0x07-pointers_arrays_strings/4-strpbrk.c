@@ -26,13 +26,7 @@ char *_strpbrk(char *s, char *accept)
 		}
 		i++;
 	}
-	s += offset;
-	if (offset < 999)
-	{
-		return (s);
-	}
-	else
-	{
+	if (offset == 999)
 		return (NULL);
-	}
+	return (s + offset);
 }
